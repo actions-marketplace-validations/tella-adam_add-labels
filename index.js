@@ -15,15 +15,7 @@ const { GitHub, context } = require("@actions/github");
       .getInput("labels")
       .split("\n")
       .filter((x) => x !== "");
-    const issueNumber =
-      core.getInput("issue_number", { required: false }) ||
-      context.payload.pull_request.number ||
-      context.payload.number;
-
-    if (isNaN(issueNumber) || issueNumber < 1) {
-      core.info("no numbers given: skip step");
-      return;
-    }
+    const issueNumber = context.payload.number;
 
     core.info(`Add labels: ${labels} to ${owner}/${repo}#${issueNumber}`);
 
