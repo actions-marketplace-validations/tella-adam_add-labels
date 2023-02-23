@@ -1,6 +1,8 @@
 name: "Add Labels v2"
 description: "Add labels on Pull Requests or Issues"
 inputs:
+  issue_number:
+    required: true
   labels:
     description: "Labels to add"
     required: true
